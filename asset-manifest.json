@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/MMK/static/css/main.abb9a516.css",
+    "main.js": "/MMK/static/js/main.6ba44ffe.js",
+    "static/media/slide3.jpg": "/MMK/static/media/slide3.54400aa7625f2ca54939.jpg",
+    "static/media/slide5.jpg": "/MMK/static/media/slide5.c776154bfbb1ae94221e.jpg",
+    "static/media/slide2.jpg": "/MMK/static/media/slide2.bf40da9e23f1d046770a.jpg",
+    "static/media/slide4.webp": "/MMK/static/media/slide4.2d0612e5b159c6e6010e.webp",
+    "static/media/fedora_logo.png": "/MMK/static/media/fedora_logo.499755739376014ef0f9.png",
+    "static/media/tableThree.png": "/MMK/static/media/tableThree.a69c2b7db0fb70ff5fd6.png",
+    "static/media/slide1.jpeg": "/MMK/static/media/slide1.f653b4df41cc9502865f.jpeg",
+    "static/media/table.png": "/MMK/static/media/table.fe629e28ea1ef81c9d81.png",
+    "static/media/ubuntu_logo.png": "/MMK/static/media/ubuntu_logo.5a62a71936967fa7243d.png",
+    "static/media/tableTwo.png": "/MMK/static/media/tableTwo.6e3f8b3f63008b3eb7e0.png",
+    "static/media/company.jpg": "/MMK/static/media/company.19d5d1643f05d3cd97b3.jpg",
+    "static/media/stage1.png": "/MMK/static/media/stage1.4e91d8f8d7f77768b954.png",
+    "static/media/debian_logo.png": "/MMK/static/media/debian_logo.2935f1e48f0c8ac3d818.png",
+    "static/media/stage4.png": "/MMK/static/media/stage4.c7004b7ba935b25309f0.png",
+    "static/media/stage2.png": "/MMK/static/media/stage2.2f53fb76ccda97d0a10a.png",
+    "static/media/stage3.png": "/MMK/static/media/stage3.2ec711d81e507d238d7f.png",
+    "static/media/centos_logo.png": "/MMK/static/media/centos_logo.e77cbdc3c41866c590e0.png",
+    "static/media/slick.svg": "/MMK/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/MMK/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/MMK/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/MMK/static/media/slick.295183786cd8a1389865.woff",
+    "static/media/logo.svg": "/MMK/static/media/logo.f265365fb8648031f3fde35cee2e4b36.svg",
+    "index.html": "/MMK/index.html",
+    "main.abb9a516.css.map": "/MMK/static/css/main.abb9a516.css.map",
+    "main.6ba44ffe.js.map": "/MMK/static/js/main.6ba44ffe.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.abb9a516.css",
+    "static/js/main.6ba44ffe.js"
+  ]
+}

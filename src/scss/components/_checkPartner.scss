@@ -1,14 +1,82 @@
-.check {
-	margin-top: 40px;
-	padding-bottom: 40px;
-	&__input {
-		width: 50%;
-		margin: 0 auto;
+.container {
+	h2,
+	h3 {
+		text-align: center;
+		margin-bottom: 20px;
 	}
-	&__result{
-		margin-top: 55px;
-		p{
-			margin-top: 10px;
+
+	.search-inn {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		padding-bottom: 40px;
+	}
+
+	.check {
+		&__input {
+			input {
+				width: 100%;
+				padding: 10px;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				margin-right: 10px;
+			}
+
+			button {
+				padding: 10px 20px;
+				border: none;
+				background-color: #007bff;
+				color: white;
+				border-radius: 4px;
+				cursor: pointer;
+				transition: background-color 0.3s ease;
+
+				&:hover {
+					background-color: #0056b3;
+				}
+			}
 		}
+
+		&__result,
+		.company-data {
+			background-color: #f8f9fa;
+			padding: 20px;
+			border-radius: 4px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			margin-top: 20px;
+			padding: 0 0 40px 0;
+			h3 {
+				margin-top: 0;
+			}
+
+			ul {
+				list-style-type: none;
+				padding: 0;
+
+				li {
+					padding: 5px 0;
+
+					&:nth-child(even) {
+						background-color: #e9ecef;
+					}
+
+					p {
+						margin: 0;
+					}
+				}
+			}
+		}
+	}
+
+	.error {
+		color: red;
+		margin-top: 20px;
+		text-align: center;
+	}
+}
+
+.partner__text {
+	ul {
+		margin-bottom: 15px;
+		border-bottom: 2px solid $gray-line;
 	}
 }

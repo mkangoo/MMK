@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import RecommendedSoftware from './pages/RecommendedSoftware'
 import Products from './pages/Products'
 import PasswordCheck from './pages/PasswordCheck'
-import Company from './pages/HistroyCompany'
+import Company from './pages/HistoryCompany'
 import CheckPartner from './pages/CheckPartner'
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
             <div className="content">
                 <Header />
                 <Routes>
-                    <Route path="/MMK" element={<Home />}></Route>
+                    <Route path="/" element={<Home />}></Route>
                     <Route path="/recommendedSoftware" element={<RecommendedSoftware />}></Route>
                     <Route path="/products" element={<Products />}></Route>
                     <Route path="/passwordCheck" element={<PasswordCheck />}></Route>

@@ -1,0 +1,26 @@
+	.software-item {
+		display: flex;
+		margin-bottom: 20px;
+		padding-top: 30px;
+		padding-bottom: 30px;
+
+		img {
+			width: 100px;
+			margin-right: 20px;
+			cursor: pointer;
+		}
+
+		.software-info {
+			flex: 1;
+
+			h3 {
+				font-size: 24px;
+				margin-bottom: 10px;
+			}
+
+			p {
+				font-size: 16px;
+				line-height: 1.5;
+			}
+		}
+	}

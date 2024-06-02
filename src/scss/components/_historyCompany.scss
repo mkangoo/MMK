@@ -1,0 +1,42 @@
+.company-history {
+	display: flex;
+	margin-top: 40px;
+	&__title {
+		font-weight: 600;
+		font-size: 19px;
+	}
+	&__description {
+		font-size: 17px;
+	}
+	img {
+		border-radius: 10px;
+	}
+	.company-info {
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
+		margin-top: 30px;
+		margin-left: 10px;
+	}
+}
+
+.info {
+	margin-top: 20px;
+	&__block {
+	}
+	&__forwards {
+		padding-bottom: 10px;
+		h2 {
+			margin-bottom: 10px;
+			margin-top: 30px;
+		}
+		ul {
+			margin-top: 20px;
+			margin-bottom: 10px;
+			li {
+				margin-bottom: 10px;
+				font-size: 17px;
+			}
+		}
+	}
+}

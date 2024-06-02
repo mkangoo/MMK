@@ -1,0 +1,14 @@
+.check {
+	margin-top: 40px;
+	padding-bottom: 40px;
+	&__input {
+		width: 50%;
+		margin: 0 auto;
+	}
+	&__result{
+		margin-top: 55px;
+		p{
+			margin-top: 10px;
+		}
+	}
+}

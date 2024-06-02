@@ -5,7 +5,7 @@ function Header() {
     return (
         <div className="header">
             <div className="container">
-                <Link to="/">
+                <Link to="/MMK">
                     <div className="header__logo">
                         <img src={logo} width={60} height={60} alt="Logo" />
                         <span>магнитогорский металлургический комбинат</span>

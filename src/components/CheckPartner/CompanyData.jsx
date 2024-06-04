@@ -11,40 +11,40 @@ const CompanyData = ({ value, companyData }) => {
                     <h2>Информация о контрагенте:</h2>
                     <ul>
                         <li>
-                            <strong>Название:</strong> <p>{value.data.name.full_with_opf}</p>
+                            <strong>Название:</strong> <p>{value.data.name.full_with_opf || 'Нет данных'}</p>
                         </li>
                         <li>
                             <strong>ИНН:</strong>
-                            <p>{value.data.inn}</p>
+                            <p>{value.data.inn || 'Нет данных'}</p>
                         </li>
                         <li>
                             <strong>ОГРН:</strong>
-                            <p>{value.data.ogrn}</p>
+                            <p>{value.data.ogrn || 'Нет данных'}</p>
                         </li>
                         <li>
                             <strong>КПП:</strong>
-                            <p>{value.data.kpp}</p>
+                            <p>{value.data.kpp || 'Нет данных'}</p>
                         </li>
                         <li>
                             <strong>ОКВЭД:</strong>
-                            <p>{value.data.okved}</p>
+                            <p>{value.data.okved || 'Нет данных'}</p>
                         </li>
                         <li>
                             <strong>Адрес:</strong>
-                            <p>{value.data.address.value}</p>
+                            <p>{value.data.address.value || 'Нет данных'}</p>
                         </li>
                         <li>
                             <strong>Статус:</strong>
-                            <p>{value.data.state.status}</p>
+                            <p>{value.data.state.status || 'Нет данных'}</p>
                         </li>
                         <li>
                             <strong>Дата регистрации:</strong>
-                            <p>{formatDate(value.data.state.registration_date)}</p>
+                            <p>{formatDate(value.data.state.registration_date) || 'Нет данных'}</p>
                         </li>
                         <li>
                             <strong>Руководитель:</strong>
                             <p>
-                                {value.data.management.name}, {value.data.management.post}
+                                {value.data?.management?.name||'Нет данных'}, {value.data?.management?.post || 'Нет данных'}
                             </p>
                         </li>
                     </ul>
@@ -62,10 +62,6 @@ const CompanyData = ({ value, companyData }) => {
                                 <li>
                                     <strong>Номера для связи:</strong>
                                     {companyData.data.Контакты?.Тел?.map(phone => <p key={phone}>{phone}</p>) || 'Нет данных'}
-                                </li>
-                                <li>
-                                    <strong>Дата Регистрации:</strong>
-                                    <p>{companyData.data.ДатаРег || 'Нет данных'}</p>
                                 </li>
                                 <li>
                                     <strong>Санкции:</strong>

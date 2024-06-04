@@ -1,143 +1,58 @@
-import React, { useState } from 'react'
-import { PartySuggestions } from 'react-dadata'
+import React, { useEffect, useState } from 'react'
+
+import PartySuggestionsComponent from '../components/CheckPartner/PartySuggestionsComponent'
+import CompanyData from '../components/CheckPartner/CompanyData'
+import { fetchCompanyData } from '../services/api'
+
 import 'react-dadata/dist/react-dadata.css'
-import axios from 'axios'
 
 function CheckPartner() {
     const [value, setValue] = useState(null)
+    const [companyData, setCompanyData] = useState('')
     const [inn, setInn] = useState('')
-    const [error, setError] = useState(null)
-    const [companyData, setCompanyData] = useState(null)
 
-    const handleInputChange = e => {
-        setInn(e.target.value)
-    }
-
-    const handleSubmit = async e => {
-        e.preventDefault()
-        try {
-            const response = await axios.get(`https://api.checko.ru/v2/company`, {
-                params: {
-                    key: 'lhGppBEPlM0uY3oG',
-                    inn: inn,
-                },
-            })
-            setCompanyData(response.data)
-            setError(null)
-        } catch (err) {
-            setError('Ошибка при выполнении запроса')
-            setCompanyData(null)
+    console.log(companyData)
+    useEffect(() => {
+        if (inn) {
+            fetchCompanyData(inn)
+                .then(data => setCompanyData(data))
+                .catch(() => setCompanyData(''))
         }
-    }
+    }, [inn])
+
+    useEffect(() => {
+        setInn(value?.data?.inn || '')
+    }, [value])
 
     return (
         <div className="container">
-            <div className="search-inn">
-                <h2>Проверка контрагентов</h2>
-
-                <PartySuggestions token="fbdf41f0f1c61a68f2dc892abfaa827082ecdec1" value={value} onChange={setValue} />
+            <div className="partner-info">
+                <h2>Зачем проверять контрагентов</h2>
+                <div className="partner-info__text">
+                    <p>
+                        ФНС требует от бизнеса проверять контрагентов до начала сотрудничества. Эту практику называют должной
+                        осмотрительностью. Проверка снимает с компании подозрения налоговой в обмане и помогает избежать убытков.
+                    </p>
+                    <p>Вот случаи, в которых вам поможет сервис проверки контрагентов.</p>
+                    <p>
+                        <strong> Вычислить фирму-однодневку.</strong> Компанию могут зарегистрировать, только чтобы взять с заказчиков аванс
+                        и исчезнуть. У такой фирмы нет активов и предпринимательской деятельности — только юрлицо и красивый сайт.
+                    </p>
+                    <p>
+                        <strong> Получить обещанные платеж или услугу.</strong> Подрядчики не всегда выполняют условия договора. К примеру,
+                        вы наняли строительную фирму, которая сделала некачественный ремонт и отказалась платить неустойку. Возможно, это
+                        случилось не в первый раз и предыдущие заказчики судились с фирмой. Проверить можно через сервис.
+                    </p>
+                    <p>
+                        <strong> Не связаться с банкротом.</strong> Если вы поставили товар компании в состоянии банкротства, она может не
+                        выплатить вам деньги. Придется начинать процедуру возврата долгов. Это долго и сложно: долги отдают по очереди,
+                        которую определяет арбитражный суд в соответствии с законом. Ждать очереди можно годами.
+                    </p>
+                </div>
             </div>
-            {value && (
-                <div className="check__result">
-                    <h3>Информация о контрагенте:</h3>
-                    <ul>
-                        <li>
-                            <strong>Название:</strong> {value.data.name.full_with_opf}
-                        </li>
-                        <li>
-                            <strong>ИНН:</strong> {value.data.inn}
-                        </li>
-                        <li>
-                            <strong>ОГРН:</strong> {value.data.ogrn}
-                        </li>
-                        <li>
-                            <strong>КПП:</strong> {value.data.kpp}
-                        </li>
-                        <li>
-                            <strong>ОКВЭД:</strong> {value.data.okved}
-                        </li>
-                        <li>
-                            <strong>Адрес:</strong> {value.data.address.value}
-                        </li>
-                        <li>
-                            <strong>Статус:</strong> {value.data.state.status}
-                        </li>
-                        <li>
-                            <strong>Дата регистрации:</strong> {new Date(value.data.state.registration_date).toLocaleDateString()}
-                        </li>
-                        <li>
-                            <strong>Руководитель:</strong> {value.data.management.name}, {value.data.management.post}
-                        </li>
-                    </ul>
-                </div>
-            )}
-            <div className="search-inn">
-                <div className="search__title">
-                    <h2>Проверка по ИНН</h2>
-                </div>
-                <form onSubmit={handleSubmit} className="check__input">
-                    <div>
-                        <input type="text" value={inn} onChange={handleInputChange} placeholder="Введите ИНН" />
-                    </div>
-                </form>
-            </div>
-            {error && <div className="error">{error}</div>}
-            {companyData && (
-                <div className="company-data">
-                    <h3>Информация о компании:</h3>
-                    <ul>
-                        <li>
-                            <strong>Сайт:</strong>
-                            <br /> {companyData.data.Контакты?.ВебСайт || 'Нет данных'}
-                        </li>
-                        <li>
-                            <strong>Почта:</strong>
-                            {companyData.data.Контакты?.Емэйл?.map((mail, index) => <p key={index}>{mail}</p>) || 'Нет данных'}
-                        </li>
-                        <li>
-                            <strong>Номера для связи:</strong>
-                            {companyData.data.Контакты?.Тел?.map((phone, index) => <p key={index}>{phone}</p>) || 'Нет данных'}
-                        </li>
-                        <li>
-                            <strong>Дата Регистрации:</strong> {companyData.data.ДатаРег || 'Нет данных'}
-                        </li>
-                        <li>
-                            <strong>Санкции:</strong>
-                            {companyData.data.СанкцииСтраны?.map((country, index) => <p key={index}>{country}</p>) || 'Нет данных'}
-                        </li>
-                    </ul>
-                    <h3>Сотрудничество:</h3>
-                    {companyData.data.СвязУчред && companyData.data.СвязУчред.length > 0 && (
-                        <div className="partner__text">
-                            {companyData.data.СвязУчред.map((obj, index) => (
-                                <ul key={index}>
-                                    <li>
-                                        <strong>ОГРН:</strong> {obj.ОГРН}
-                                    </li>
-                                    <li>
-                                        <strong>ИНН:</strong> {obj.ИНН}
-                                    </li>
-                                    <li>
-                                        <strong>КПП:</strong> {obj.КПП}
-                                    </li>
-                                    <li>
-                                        <strong>Полное наименование:</strong> {obj.НаимПолн}
-                                    </li>
-                                    <li>
-                                        <strong>ОКВЭД:</strong> {obj.ОКВЭД}
-                                    </li>
-                                    <li>
-                                        <strong>Статус:</strong> {obj.Статут}
-                                    </li>
-                                    <li>
-                                        <strong>Юр Адрес:</strong> {obj.ЮрАдрес}
-                                    </li>
-                                </ul>
-                            ))}
-                        </div>
-                    )}
-                </div>
-            )}
+            <h2>Проверка Контрагентов</h2>
+            <PartySuggestionsComponent value={value} onChange={setValue} />
+            <CompanyData value={value} companyData={companyData} />
         </div>
     )
 }

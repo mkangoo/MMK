@@ -8,7 +8,7 @@ const PartnerShip = ({ companyData }) => {
     const { СвязУчред } = companyData.data
 
     if (!СвязУчред || СвязУчред.length === 0) {
-        return null
+        return []
     }
 
     return (
